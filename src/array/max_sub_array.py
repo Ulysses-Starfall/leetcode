@@ -1,6 +1,8 @@
 class MaxSubArray:
+    """[53]最大子序和"""
     @staticmethod
     def func1(nums):
+        """贪心算法1"""
         tmp_max = 0
         ret = nums[0]
         for i in nums:
@@ -11,6 +13,7 @@ class MaxSubArray:
 
     @staticmethod
     def func2(nums):
+        """动态规划"""
         n = len(nums)
         for i in range(1, n):
             if nums[i - 1] > 0:
@@ -20,6 +23,7 @@ class MaxSubArray:
 
     @staticmethod
     def func3(nums):
+        """贪心算法2"""
         tmp_max = 0
         ret = nums[0]
         for i in nums:
