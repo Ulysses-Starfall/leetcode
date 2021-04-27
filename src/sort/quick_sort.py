@@ -49,12 +49,23 @@ def quick_sort2(data, start, end):
         quick_sort2(data, i + 1, end)
 
 
+def bubble_sort(data):
+    if len(data) < 2:
+        return data
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if data[i] > data[j]:
+                data[i], data[j] = data[j], data[i]
+
+    return data
+
+
 if __name__ == "__main__":
     import time
 
     start_time = int(time.time() * 1000)
     for _ in range(100000):
-        test_data = random.sample(range(1, 10), 5)
+        test_data = random.sample(range(1, 100), 50)
         quick_sort(test_data)
     end_time = int(time.time() * 1000)
 
@@ -62,8 +73,16 @@ if __name__ == "__main__":
 
     start_time = int(time.time() * 1000)
     for _ in range(100000):
-        test_data = random.sample(range(1, 10), 5)
+        test_data = random.sample(range(1, 100), 50)
         quick_sort2(test_data, 0, len(test_data) - 1)
     end_time = int(time.time() * 1000)
 
     print("quick sort 2 total time: ", end_time - start_time)
+
+    start_time = int(time.time() * 1000)
+    for _ in range(100000):
+        test_data = random.sample(range(1, 100), 50)
+        bubble_sort(test_data)
+    end_time = int(time.time() * 1000)
+
+    print("bubble sort total time: ", end_time - start_time)
