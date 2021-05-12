@@ -15,9 +15,13 @@ class Queue:
     def dequeue(self):
         return self.queue.popleft()
 
+    def is_empty(self):
+        return len(self.queue) == 0
+
 
 if __name__ == "__main__":
     q = Queue()
+    print(q.is_empty())
     q.enqueue(1)
     q.enqueue(2)
     q.enqueue(3)
